@@ -1,10 +1,8 @@
 
-function DeleteButton() {
-    function handleDeleteClick(){
-    }
+export function DeleteButton({onClick}) {
+    const handleClick = () => {
+        onClick();
+      };
 
-
-    return (
-        <button>Delete</button>
-    )
+    return <button className="" onClick={handleClick}>Delete</button>;
 }
