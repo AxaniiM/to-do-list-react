@@ -20,7 +20,8 @@ function ToDoList() {
     if (newTask === "") {
       alert("can't add an empty task!")
       return todos;
-  } else setTodos([...todos, newTaskObj]);
+  } else setTodos([newTaskObj,
+    ...todos ]);
 
   };
   
@@ -47,24 +48,23 @@ function ToDoList() {
     };
    
   return (
-    <>
+    <div className='flex flex-col justify-center items-center mt-20'>
+    <h1 className="font-bold mb-5 text-5xl">To Do List:</h1>
       <AddTask onAdd={handleAddTask}/>
-        <ul>
-          {todos.map(task => 
-          <>
+        <ul className='flex flex-col'>
+          {todos.map(task =>
+       
             <Task
             key={task.id}
             item={task} 
             onDelete = {()=> handleDeleteTask(task.id)}
             onSave = { handleSave}
             onEdit = {handleEdit}
-            onCancel = {handleCancel}
-            /> 
-            </>
+            onCancel = {handleCancel} />
+ 
           )}
         </ul>
-
-    </>
+    </div>
           )
 }
 
